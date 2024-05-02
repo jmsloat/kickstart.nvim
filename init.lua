@@ -81,6 +81,8 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 -- custom keymaps
 vim.keymap.set('i', 'jj', '<Esc>')
 vim.keymap.set('n', '<C-s>', '<cmd>w<CR>')
+vim.keymap.set('n', 'H', '<cmd>bprev<CR>')
+vim.keymap.set('n', 'L', '<cmd>bnext<CR>')
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' })
@@ -474,6 +476,7 @@ require('lazy').setup({
       formatters_by_ft = {
         lua = { 'stylua' },
         go = { 'goimports' },
+        md = { 'markdownlint' },
       },
     },
   },
@@ -680,7 +683,12 @@ require('lazy').setup({
   --
   --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
   --    For additional information, see `:help lazy.nvim-lazy.nvim-structuring-your-plugins`
-  { import = 'custom.plugins' },
+  {
+    import = 'custom.plugins',
+    change_detection = {
+      notify = false,
+    },
+  },
 }, {
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the

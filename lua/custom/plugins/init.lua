@@ -28,4 +28,8 @@ return {
       return keys
     end,
   },
+  {
+    'FabijanZulj/blame.nvim',
+    opts = {},
+  },
 }

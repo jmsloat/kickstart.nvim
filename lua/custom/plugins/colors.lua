@@ -8,10 +8,10 @@ return {
   {
     'eldritch-theme/eldritch.nvim',
     priority = 1000,
-    init = function()
-      vim.cmd.colorscheme 'eldritch'
-      vim.cmd.hi 'Comment gui=none'
-    end,
+    -- init = function()
+    --   vim.cmd.colorscheme 'eldritch'
+    --   vim.cmd.hi 'Comment gui=none'
+    -- end,
   },
   {
     'folke/tokyonight.nvim',
@@ -25,5 +25,15 @@ return {
       -- You can configure highlights by doing something like:
       vim.cmd.hi 'Comment gui=none'
     end,
+  },
+  {
+    'rebelot/kanagawa.nvim',
+    init = function()
+      vim.cmd.colorscheme 'kanagawa-wave'
+      vim.cmd.hi 'Comment gui=none'
+    end,
+    opts = {
+      theme = 'dragon',
+    },
   },
 }
