@@ -19,8 +19,10 @@ return {
   {
     'akinsho/bufferline.nvim',
     opts = {
-      diagnostics = 'nvim_lsp',
-      sort_by = 'relative_directory',
+      options = {
+        diagnostics = 'nvim_lsp',
+        sort_by = 'relative_directory',
+      },
     },
   },
 }
