@@ -15,6 +15,7 @@ return {
     { '<leader>e', 'Neotree float<CR>', { desc = 'Float NeoTree' } },
   },
   opts = {
+    close_if_last_window = true,
     filesystem = {
       follow_current_file = {
         enabled = true,
