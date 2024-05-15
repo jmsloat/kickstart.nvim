@@ -15,6 +15,7 @@ if iscorp then
             path = '~/notes',
           },
         },
+        disable_frontmatter = true,
       },
       ft = 'markdown',
     },

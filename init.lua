@@ -14,6 +14,8 @@ vim.opt.number = true
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.opt.mouse = 'a'
 
+vim.opt.conceallevel = 1
+
 -- Don't show the mode, since it's already in the status line
 vim.opt.showmode = false
 
@@ -81,8 +83,9 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 -- custom keymaps
 vim.keymap.set('i', 'jj', '<Esc>')
 vim.keymap.set('n', '<C-s>', '<cmd>w<CR>')
-vim.keymap.set('n', 'H', '<cmd>bprev<CR>')
-vim.keymap.set('n', 'L', '<cmd>bnext<CR>')
+vim.keymap.set('n', 'H', '<cmd>BufferLineCyclePrev<CR>')
+vim.keymap.set('n', 'L', '<cmd>BufferLineCycleNext<CR>')
+vim.keymap.set('n', 'Q', '<cmd>bdelete<CR>')
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' })
@@ -685,11 +688,11 @@ require('lazy').setup({
   --    For additional information, see `:help lazy.nvim-lazy.nvim-structuring-your-plugins`
   {
     import = 'custom.plugins',
-    change_detection = {
-      notify = false,
-    },
   },
 }, {
+  change_detection = {
+    notify = false,
+  },
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the
     -- default lazy.nvim defined Nerd Font icons, otherwise define a unicode icons table
