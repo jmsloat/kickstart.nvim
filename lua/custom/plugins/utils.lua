@@ -29,4 +29,9 @@ return {
     'sindrets/diffview.nvim',
     opts = {},
   },
+  {
+    'kevinhwang91/nvim-ufo',
+    dependencies = { 'kevinhwang91/promise-async' },
+    opts = {},
+  },
 }
