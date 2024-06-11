@@ -85,12 +85,17 @@ vim.opt.scrolloff = 10
 vim.opt.hlsearch = true
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
+local function bufdelete()
+  local d = require('mini.bufremove').delete
+  d(0)
+end
+
 -- custom keymaps
 vim.keymap.set('i', 'jj', '<Esc>')
 vim.keymap.set('n', '<C-s>', '<cmd>w<CR>')
 vim.keymap.set('n', 'H', '<cmd>BufferLineCyclePrev<CR>')
 vim.keymap.set('n', 'L', '<cmd>BufferLineCycleNext<CR>')
-vim.keymap.set('n', 'Q', '<cmd>bdelete<CR>')
+vim.keymap.set('n', 'Q', bufdelete)
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' })
@@ -119,16 +124,6 @@ if not vim.loop.fs_stat(lazypath) then
 end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
--- [[ Configure and install plugins ]]
---
---  To check the current status of your plugins, run
---    :Lazy
---
---  You can press `?` in this menu for help. Use `:q` to close the window
---
---  To update plugins you can run
---    :Lazy update
---
 require('lazy').setup({
   change_detection = {
     notify = false,
@@ -617,6 +612,8 @@ require('lazy').setup({
       require('mini.surround').setup()
 
       require('mini.starter').setup()
+
+      require('mini.bufremove').setup()
 
       -- Simple and easy statusline.
       --  You could remove this setup call if you don't like it,
