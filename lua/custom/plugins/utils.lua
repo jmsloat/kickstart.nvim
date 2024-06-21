@@ -34,4 +34,23 @@ return {
     dependencies = { 'kevinhwang91/promise-async' },
     opts = {},
   },
+  {
+    'folke/trouble.nvim',
+    opts = {},
+    cmd = 'Trouble',
+    keys = {
+      {
+        '<leader>xd',
+        '<cmd>Trouble diagnostics toggle filter.buf=0<cr>',
+      },
+      {
+        '<leader>Xd',
+        '<cmd>Trouble diagnostics<cr>',
+      },
+      {
+        '<leader>gr',
+        '<cmd>Trouble lsp_references<cr>',
+      },
+    },
+  },
 }

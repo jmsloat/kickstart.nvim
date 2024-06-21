@@ -26,6 +26,11 @@ return {
             },
           },
           ['core.ui.calendar'] = {},
+          ['core.journal'] = {
+            config = {
+              strategy = '%Y/%m/%d.norg',
+            },
+          },
         },
       }
     end,
