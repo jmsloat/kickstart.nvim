@@ -26,6 +26,9 @@ vim.opt.tabstop = 2 -- insert 2 spaces for a tab
 -- no wrapping! wrapping is bad.
 vim.opt.wrap = false
 
+-- auto reload if a file changes on disk
+vim.opt.autoread = true
+
 -- Sync clipboard between OS and Neovim.
 --  Remove this option if you want your OS clipboard to remain independent.
 --  See `:help 'clipboard'`
@@ -76,7 +79,7 @@ vim.opt.inccommand = 'split'
 vim.opt.cursorline = true
 
 -- Minimal number of screen lines to keep above and below the cursor.
-vim.opt.scrolloff = 10
+vim.opt.scrolloff = 15
 
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
@@ -346,6 +349,9 @@ require('lazy').setup({
           -- Fuzzy find all the symbols in your current document.
           --  Symbols are things like variables, functions, types, etc.
           map('<leader>fo', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
+
+          -- git status
+          -- map('<leader>gs', require('telescope.builtin').git_status { initial_mode = 'normal' }, '[G]it [S]tatus')
 
           -- Fuzzy find all the symbols in your current workspace.
           --  Similar to document symbols, except searches over your entire project.

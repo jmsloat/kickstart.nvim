@@ -48,7 +48,7 @@ return {
         '<cmd>Trouble diagnostics<cr>',
       },
       {
-        '<leader>gr',
+        'gr',
         '<cmd>Trouble lsp_references<cr>',
       },
     },
