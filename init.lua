@@ -423,8 +423,9 @@ require('lazy').setup({
       local servers = {
         -- clangd = {},
         gopls = {},
+        pyright = {},
         goimports = {},
-
+        elixirls = {},
         lua_ls = {
           -- cmd = {...},
           -- filetypes = { ...},
@@ -464,6 +465,8 @@ require('lazy').setup({
           end,
         },
       }
+
+      require('lspconfig').gleam.setup {}
     end,
   },
 
@@ -495,7 +498,7 @@ require('lazy').setup({
       formatters_by_ft = {
         lua = { 'stylua' },
         go = { 'goimports' },
-        md = { 'markdownlint' },
+        -- md = { 'markdownlint' },
       },
     },
   },
@@ -731,6 +734,17 @@ require('lazy').setup({
     },
   },
 })
+
+local list_snips = function()
+  local ft_list = require('luasnip').available()[vim.o.filetype]
+  local ft_snips = {}
+  for _, item in pairs(ft_list) do
+    ft_snips[item.trigger] = item.name
+  end
+  print(vim.inspect(ft_snips))
+end
+
+vim.api.nvim_create_user_command('SnipList', list_snips, {})
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
