@@ -1,20 +1,21 @@
 return {
   {
-    'nvim-neotest/neotest-go',
-  },
-  {
     'nvim-neotest/neotest',
     dependencies = {
       'nvim-neotest/nvim-nio',
       'nvim-lua/plenary.nvim',
       'antoinemadec/FixCursorHold.nvim',
       'nvim-treesitter/nvim-treesitter',
-      'nvim-neotest/neotest-go',
+      { 'fredrikaverpil/neotest-golang', version = '*' },
+      { 'sluongng/neotest-bazel' },
     },
-    opts = {
-      adapters = {
-        -- require 'neotest-go',
-      },
-    },
+    config = function()
+      require('neotest').setup {
+        adapters = {
+          require 'neotest-golang',
+          require 'neotest-bazel',
+        },
+      }
+    end,
   },
 }
