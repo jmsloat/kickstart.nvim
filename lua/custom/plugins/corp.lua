@@ -25,6 +25,21 @@ if iscorp then
       },
       ft = 'markdown',
     },
+    {
+      url = 'sso://user/rprs/buganizer.nvim',
+      dependencies = {
+        'nvim-telescope/telescope.nvim',
+        { url = 'sso://user/vicentecaycedo/buganizer-utils.nvim' },
+      },
+      cmd = {
+        'FindBugs',
+        'ShowBugUnderCursor',
+      },
+    },
+    {
+      url = 'sso://user/vicentecaycedo/cmp-buganizer',
+      config = true,
+    },
   }
 else
   return {}
